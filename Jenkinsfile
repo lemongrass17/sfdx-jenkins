@@ -31,7 +31,7 @@ node {
             }
 
             stage('Push to Sandbox Org and Run Tests') {
-                rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir ${DEPLOY_DIR} --targetusername acxdev16 --testlevel ${TEST_LEVEL}"
+                rc = command "${toolbelt}/sfdx force:source:deploy --wait 10 --sourcepath ${DEPLOY_DIR} --targetusername acxdev16 --testlevel ${TEST_LEVEL}"
                 if (rc != 0) {
                     error 'Salesforce push to Sandbox and Run Tests.'
                 }
